@@ -131,3 +131,4 @@ var TailwindProvider = function TailwindProvider(WrappedComponent) {
 var _default = TailwindProvider;
 exports["default"] = _default;
 global.useTailwind = getStyles;
+global.tw = getStyles;
