@@ -88,7 +88,7 @@ var supportedUtilities = [// Flexbox
 /^leading-\d+/, // Text align, color, opacity
 /^text-/, // Text transform
 'uppercase', 'lowercase', 'capitalize', 'normal-case', // Background color
-/^bg-(transparent|black|white|gray|red|orange|yellow|green|teal|blue|indigo|purple|pink)/, // Background opacity
+/^bg-(transparent|black|white|gray|red|orange|yellow|green|teal|blue|indigo|purple|pink|(\w|-)*)/, // Background opacity
 /^bg-opacity-/, // Border color, style, width, radius, opacity
 /^(border|rounded)/, // Opacity
 /^opacity-/, // Pointer events
