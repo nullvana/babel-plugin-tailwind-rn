@@ -6,6 +6,8 @@ function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o =
 
 function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
 
+function _readOnlyError(name) { throw new Error("\"" + name + "\" is read-only"); }
+
 try {
   require('tailwindcss');
 } catch (error) {
@@ -32,6 +34,13 @@ var twConfig = function twConfig() {
 
   if (fs.existsSync(customConfig)) {
     extras = require(customConfig);
+  } else {
+    var parentDir = path.resolve(process.cwd(), '..');
+    customConfig = (_readOnlyError("customConfig"), path.join(parentDir, 'tailwind.config.js'));
+
+    if (fs.existsSync(customConfig)) {
+      extras = require(customConfig);
+    }
   }
 
   extras.target = 'ie11';

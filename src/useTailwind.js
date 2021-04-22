@@ -87,4 +87,4 @@ const TailwindProvider = (WrappedComponent) => (props) => {
 export default TailwindProvider;
 
 global.useTailwind = getStyles
-
+global.tw = getStyles; // short word for 'useTailwind'

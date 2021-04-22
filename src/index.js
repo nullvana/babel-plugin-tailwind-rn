@@ -22,6 +22,12 @@ const twConfig = () => {
 
   if (fs.existsSync(customConfig)) {
     extras = require(customConfig)
+  } else {
+    let parentDir = path.resolve(process.cwd(), '..');
+    customConfig = path.join(parentDir, 'tailwind.config.js');
+    if (fs.existsSync(customConfig)) {
+      extras = require(customConfig);
+    }
   }
 
   extras.target = 'ie11'
@@ -103,7 +109,7 @@ const supportedUtilities = [
   'capitalize',
   'normal-case',
   // Background color
-  /^bg-(transparent|black|white|gray|red|orange|yellow|green|teal|blue|indigo|purple|pink)/,
+  /^bg-(transparent|black|white|gray|red|orange|yellow|green|teal|blue|indigo|purple|pink|(\w|-)*)/,
   // Background opacity
   /^bg-opacity-/,
   // Border color, style, width, radius, opacity
